@@ -30,6 +30,12 @@ allprojects {
     }
 }
 
+project(":app") {
+    ext {
+        sourceSetTypes = ["java", "spring-boot-test", "spring-boot-lib", "application", "grpc", "integration-test"]
+    }
+}
+
 configure(subprojects.findAll { it.sourceSetTypes.contains("java") }) {
     apply plugin: 'java'
     apply plugin: 'idea'
@@ -50,12 +56,21 @@ configure(subprojects.findAll { it.sourceSetTypes.contains("java") }) {
 configure(subprojects.findAll { it.sourceSetTypes.contains("spring-boot-lib") }) {
 
     dependencies {
-        compile project(':common')
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: springBootVersion
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: springBootVersion
+        compile group: 'io.micrometer', name: 'micrometer-registry-prometheus', version: '1.0.6'
         compile group: 'org.springframework', name: 'spring-jdbc', version: '5.0.7.RELEASE'
+    }
+}
+
+configure(subprojects.findAll { it.sourceSetTypes.contains("spring-boot-test") }) {
+
+    dependencies {
+        testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion) {
+            exclude group: "org.mockito"
+        }
     }
 }
 
@@ -70,6 +85,7 @@ configure(subprojects.findAll { it.sourceSetTypes.contains("application") }) {
         classifier = 'boot'
     }
 }
+
 
 configure(subprojects.findAll { it.sourceSetTypes.contains("jpa") }) {
     dependencies {
@@ -114,13 +130,71 @@ configure(subprojects.findAll { it.sourceSetTypes.contains("grpc") }) {
     }
 }
 
+configure(subprojects.findAll { it.sourceSetTypes.contains("integration-test") }) {
+    apply plugin: 'docker-compose'
 
-project(":app") {
-    ext {
-        sourceSetTypes = ["java"]
+    sourceSets {
+        integrationTest {
+            java {
+                compileClasspath += main.output + test.output
+                runtimeClasspath += main.output + test.output
+                srcDir file('src/integration-test/java')
+            }
+            resources {
+                srcDirs = [file('src/integration-test/resources'), file('src/test/resources')]
+            }
+        }
     }
+
+    task integrationTest(type: Test) {
+        testClassesDirs = sourceSets.integrationTest.output.classesDirs
+        classpath = sourceSets.integrationTest.runtimeClasspath
+    }
+
+    task integrationTestCI(type: Test) {
+        testClassesDirs = sourceSets.integrationTest.output.classesDirs
+        classpath = sourceSets.integrationTest.runtimeClasspath
+    }
+
+    configurations {
+        integrationTestCompile.extendsFrom testCompile
+    }
+
+    dockerCompose.isRequiredBy(integrationTest)
 }
 
+configure(subprojects.findAll { it.sourceSetTypes.contains("sanity-test") }) {
+    apply plugin: 'docker-compose'
+
+    sourceSets {
+        sanityTest {
+            java {
+                compileClasspath += main.output + test.output
+                runtimeClasspath += main.output + test.output
+                srcDir file('src/sanityTest/java')
+            }
+            resources {
+                srcDirs = [file('src/sanityTest/resources'), file('src/test/resources')]
+            }
+        }
+    }
+
+    task sanityTest(type: Test) {
+        testClassesDirs = sourceSets.sanityTest.output.classesDirs
+        classpath = sourceSets.sanityTest.runtimeClasspath
+    }
+
+    task sanityTestCI(type: Test) {
+        testClassesDirs = sourceSets.sanityTest.output.classesDirs
+        classpath = sourceSets.sanityTest.runtimeClasspath
+    }
+
+    configurations {
+        sanityTestCompile.extendsFrom testCompile
+    }
+
+    dockerCompose.isRequiredBy(sanityTest)
+}
 
 /**
  * Gradle wrapper.
