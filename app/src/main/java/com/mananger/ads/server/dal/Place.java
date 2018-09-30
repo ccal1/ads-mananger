@@ -20,7 +20,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Place {
 
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long id;
 
   @ManyToOne
   @JoinColumn(name = "campaign_id")
@@ -28,7 +30,8 @@ public class Place {
 
   @Column Double lat;
 
-  @Column(name = "lng") Double lng;
+  @Column(name = "lng")
+  Double lng;
 
   @Column(name = "visit_count")
   Long visitCount;

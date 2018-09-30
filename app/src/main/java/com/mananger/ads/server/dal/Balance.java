@@ -3,7 +3,6 @@ package com.mananger.ads.server.dal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,8 +20,8 @@ public class Balance {
   @Id
   @Column(name = "user_id")
   Long id;
-  @OneToOne @MapsId
-  User user;
+
+  @OneToOne @MapsId User user;
 
   @Column Double ammount;
 }

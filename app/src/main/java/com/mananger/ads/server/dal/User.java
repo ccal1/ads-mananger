@@ -19,7 +19,9 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User implements Serializable {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long id;
 
   @Column String login;
 

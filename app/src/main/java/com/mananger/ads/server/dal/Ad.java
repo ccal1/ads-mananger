@@ -20,7 +20,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Ad {
 
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long id;
 
   @ManyToOne
   @JoinColumn(name = "campaign_id")

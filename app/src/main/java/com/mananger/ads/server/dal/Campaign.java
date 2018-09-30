@@ -24,7 +24,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Campaign {
 
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long id;
 
   @Column(name = "visits_goal")
   Long visitsGoal;
