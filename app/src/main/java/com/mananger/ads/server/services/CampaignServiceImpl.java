@@ -28,7 +28,7 @@ public class CampaignServiceImpl implements CampaignService {
 
     final double cost = calculateCost(dto);
 
-    if(!userService.hasFunds(request.getUserId(), cost)) {
+    if (!userService.hasFunds(request.getUserId(), cost)) {
       throw new InsuficientFundsException("You don't have enough funds");
     }
 

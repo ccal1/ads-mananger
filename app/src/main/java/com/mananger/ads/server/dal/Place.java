@@ -3,6 +3,7 @@ package com.mananger.ads.server.dal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +20,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Place {
 
-  @Id @GeneratedValue Long id;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
   @ManyToOne
   @JoinColumn(name = "campaign_id")
@@ -27,8 +28,8 @@ public class Place {
 
   @Column Double lat;
 
-  @Column Double lng;
+  @Column(name = "lng") Double lng;
 
-  @Column(name = "visits_count")
-  Long visitsCount;
+  @Column(name = "visit_count")
+  Long visitCount;
 }

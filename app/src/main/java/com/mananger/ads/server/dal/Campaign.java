@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,7 +24,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Campaign {
 
-  @Id @GeneratedValue Long id;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
   @Column(name = "visits_goal")
   Long visitsGoal;
@@ -32,10 +33,10 @@ public class Campaign {
   @JoinColumn(name = "user_id")
   User user;
 
-  @OneToMany(mappedBy = "Place")
+  @OneToMany(mappedBy = "campaign")
   Set<Place> places = new HashSet<>();
 
-  @OneToMany(mappedBy = "Ad")
+  @OneToMany(mappedBy = "campaign")
   Set<Ad> ads = new HashSet<>();
 
   @Column(name = "start_date")

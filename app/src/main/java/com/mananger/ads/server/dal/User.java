@@ -1,8 +1,10 @@
 package com.mananger.ads.server.dal;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,8 +18,8 @@ import lombok.experimental.FieldDefaults;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User {
-  @Id @GeneratedValue Long id;
+public class User implements Serializable {
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
   @Column String login;
 

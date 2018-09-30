@@ -3,7 +3,9 @@ package com.mananger.ads.server.dal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -16,7 +18,11 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Balance {
-  @Id @EqualsAndHashCode.Include @MapsId User user;
+  @Id
+  @Column(name = "user_id")
+  Long id;
+  @OneToOne @MapsId
+  User user;
 
   @Column Double ammount;
 }
