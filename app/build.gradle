@@ -19,5 +19,5 @@ dependencies {
 
 dockerCompose {
     useComposeFiles = ['../docker-compose.yml']
-//    startedServices = ['postgres', 'migration', 'amazon-s3']
+//    startedServices = ['postgres', 'migration']
 }

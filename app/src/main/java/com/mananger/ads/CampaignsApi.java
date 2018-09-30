@@ -10,4 +10,3 @@ public class CampaignsApi {
     SpringApplication.run(CampaignsApi.class, args);
   }
 }
-
