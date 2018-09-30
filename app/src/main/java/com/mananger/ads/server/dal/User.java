@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldDefaults;
 
 @Entity
-@Table(name = "place")
+@Table(name = "api_user")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)

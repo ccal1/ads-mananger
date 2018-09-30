@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldDefaults;
 
 @Entity
-@Table(name = "campaign")
+@Table(name = "balance")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
