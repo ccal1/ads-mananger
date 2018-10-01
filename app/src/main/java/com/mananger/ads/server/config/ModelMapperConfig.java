@@ -1,8 +1,8 @@
 package com.mananger.ads.server.config;
 
-import com.mananger.ads.server.dal.Campaign;
-import com.mananger.ads.server.dto.CampaignDto;
-import com.mananger.ads.server.dto.CampaignDto.CampaignDtoBuilder;
+import com.mananger.ads.campaign.models.Campaign;
+import com.mananger.ads.campaign.dto.CampaignDto;
+import com.mananger.ads.campaign.dto.CampaignDto.CampaignDtoBuilder;
 import java.sql.Date;
 import java.time.LocalDate;
 import org.modelmapper.ModelMapper;

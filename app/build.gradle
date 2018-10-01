@@ -2,22 +2,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 
-mainClassName = 'com.manager.ads.CampaignsApi'
-
-tasks.withType(Test) {
-    systemProperty('java.library.path', 'libs/')
-}
+mainClassName = 'com.mananger.ads.CampaignsApi'
 
 dependencies {
-    compile group: 'org.lognet', name: 'grpc-spring-boot-starter', version: '2.4.0'
-    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.6'
-    compile 'org.modelmapper:modelmapper:2.3.0'
-
-    testCompile group: 'commons-io', name: 'commons-io', version: '2.6'
-    testCompile group: 'org.apache.commons', name: 'commons-text', version: '1.4'
-//    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
-
-//    runtime('org.postgresql.Driver:42.2.5')
 }
 
 dockerCompose {

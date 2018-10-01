@@ -1,4 +1,4 @@
-package com.mananger.ads.server.dal;
+package com.mananger.ads.campaign.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.mananger.ads.server.dto;
+package com.mananger.ads.campaign.dto;
 
 import lombok.Builder;
 import lombok.Value;

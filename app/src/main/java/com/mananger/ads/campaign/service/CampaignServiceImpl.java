@@ -1,10 +1,10 @@
-package com.mananger.ads.server.services;
+package com.mananger.ads.campaign.service;
 
-import com.mananger.ads.server.controllers.CampaignRequest;
-import com.mananger.ads.server.dal.Campaign;
-import com.mananger.ads.server.dal.CampaignRepository;
-import com.mananger.ads.server.dto.CampaignDto;
-import com.mananger.ads.server.dto.CampaignDto.CampaignDtoBuilder;
+import com.mananger.ads.campaign.dto.CampaignDto.CampaignRequest;
+import com.mananger.ads.campaign.models.Campaign;
+import com.mananger.ads.campaign.repository.CampaignRepository;
+import com.mananger.ads.campaign.dto.CampaignDto;
+import com.mananger.ads.campaign.dto.CampaignDto.CampaignDtoBuilder;
 import com.mananger.ads.server.exceptions.InsuficientFundsException;
 import javax.transaction.Transactional;
 import lombok.AllArgsConstructor;

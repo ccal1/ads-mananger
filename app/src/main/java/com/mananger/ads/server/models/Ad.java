@@ -1,8 +1,6 @@
-package com.mananger.ads.server.dal;
+package com.mananger.ads.server.models;
 
-import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
+import com.mananger.ads.campaign.models.Campaign;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -18,32 +15,20 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldDefaults;
 
 @Entity
-@Table(name = "campaign")
+@Table(name = "ad")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Campaign {
+public class Ad {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 
-  @Column(name = "visits_goal")
-  Long visitsGoal;
-
   @ManyToOne
-  @JoinColumn(name = "user_id")
-  User user;
+  @JoinColumn(name = "campaign_id")
+  Campaign campaign;
 
-  @OneToMany(mappedBy = "campaign")
-  Set<Place> places = new HashSet<>();
-
-  @OneToMany(mappedBy = "campaign")
-  Set<Ad> ads = new HashSet<>();
-
-  @Column(name = "start_date")
-  Date startDate;
-
-  @Column(name = "end_date")
-  Date endDate;
+  @Column(name = "image_url")
+  String imageUrl;
 }
