@@ -29,11 +29,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
         .formLogin()
         .loginPage("/login")
-        .defaultSuccessUrl("/campaign", true)
         .permitAll()
-        .and()
-        .logout()
-        .permitAll();
+        .defaultSuccessUrl("/campaign", true)
+        .and();
   }
 
   @Override

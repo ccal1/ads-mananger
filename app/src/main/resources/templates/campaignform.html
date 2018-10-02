@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Getting Started: Handling Form Submission</title>
+  <title>Create campaign</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Form</h1>
+<h1>Create campaign</h1>
 <form action="#" th:action="@{/campaign}" th:object="${campaign}" method="post">
   <p>StartDate: <input type="date" th:field="*{startDate}" /></p>
   <p>EndDate: <input type="date" th:field="*{endDate}" /></p>

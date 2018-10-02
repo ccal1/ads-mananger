@@ -1,25 +1,34 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Getting Started: Handling Form Submission</title>
+  <title>Campaign</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Result</h1>
+<h1>Campaign</h1>
 <p th:text="'id: ' + ${campaign.id}" />
 <p th:text="'cpv: ' + ${campaign.cpv}" />
 <p th:text="'visit goal: ' + ${campaign.visitsGoal}" />
 <p th:text="'start date: ' + ${campaign.startDate}" />
 <p th:text="'end date: ' + ${campaign.endDate}" />
 
-<h1>Places</h1>
-<tr th:each="place : ${campaign.places}">
-    <td th:text="${place.id}">1</td>
-    <td><a href="#" th:text="${place.lat}">Title ...</a></td>
-    <td th:text="${place.long}">Text ...</td>
-</tr>
+<div th:if="${not #lists.isEmpty(campaign.places)}">
+    <h1>Places</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+        <tr th:each="place : ${campaign.places}">
+            <td th:text="${place.id}">1</td>
+            <td><a href="#" th:text="${place.lat}">Title ...</a></td>
+            <td th:text="${place.lng}">Text ...</td>
+        </tr>
+    </table>
+</div>
 <h1>Add Place</h1>
-<form action="#" th:action="@{/campaign/addplace}" th:object="${place}" method="post">
+<form action="#" th:action="@{/campaign/place}" th:object="${place}" method="post">
   <p>Lat: <input type="text" th:field="*{lat}" /></p>
   <p>Long: <input type="text" th:field="*{lng}" /></p>
   <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
