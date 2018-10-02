@@ -1,6 +1,5 @@
 package com.mananger.ads.campaign.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -14,8 +13,7 @@ import lombok.Value;
 public class PlaceRequest {
   String name;
 
-  @NonNull
-  Double lat;
+  @NonNull Double lat;
 
   @NonNull Double lng;
 }

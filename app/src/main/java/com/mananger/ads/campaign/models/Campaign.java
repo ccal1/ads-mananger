@@ -1,7 +1,6 @@
 package com.mananger.ads.campaign.models;
 
 import com.mananger.ads.server.models.Ad;
-import com.mananger.ads.server.models.User;
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AccessLevel;
@@ -33,9 +30,7 @@ public class Campaign {
   @Column(name = "visits_goal")
   Long visitsGoal;
 
-  @ManyToOne
-  @JoinColumn(name = "user_id")
-  User user;
+  @Column String userEmail;
 
   @OneToMany(mappedBy = "campaign")
   Set<Place> places = new HashSet<>();

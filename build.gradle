@@ -41,6 +41,8 @@ configure(subprojects.findAll { it.sourceSetTypes.contains("java") }) {
     dependencies {
         compile group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
         annotationProcessor 'org.projectlombok:lombok:1.18.2'
+        compile group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.4.0'
+        compile 'com.squareup.retrofit2:converter-gson:2.4.0'
 
         compile 'org.modelmapper:modelmapper:2.3.0'
 
@@ -55,24 +57,15 @@ configure(subprojects.findAll { it.sourceSetTypes.contains("spring-boot-lib") })
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
         compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: springBootVersion
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: springBootVersion
 
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: springBootVersion
     }
 }
 
-//configure(subprojects.findAll { it.sourceSetTypes.contains("spring-boot-test") }) {
-//
-//    dependencies {
-//        testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion) {
-//            exclude group: "org.mockito"
-//        }
-//    }
-//}
-
 configure(subprojects.findAll { it.sourceSetTypes.contains("application") }) {
     apply plugin: 'application'
     apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-manangement'
 
     jar {
         enabled = true

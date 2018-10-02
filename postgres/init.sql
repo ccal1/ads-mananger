@@ -1,11 +1,5 @@
-CREATE TABLE api_user (
-  id BIGSERIAL PRIMARY KEY NOT NULL,
-  login TEXT,
-  password TEXT
-);
-
 CREATE TABLE balance (
-  user_id BIGINT PRIMARY KEY REFERENCES api_user(id),
+  user_email TEXT PRIMARY KEY,
   ammount DOUBLE PRECISION NOT NULL
 );
 
@@ -13,7 +7,7 @@ CREATE TABLE balance (
 CREATE TABLE campaign (
   id BIGSERIAL PRIMARY KEY NOT NULL,
   visits_goal BIGINT NOT NULL,
-  user_id BIGINT NOT NULL REFERENCES api_user(id),
+  user_email TEXT NOT NULL,
   start_date DATE NOT NULL,
   end_date DATE NOT NULL
 );

@@ -16,8 +16,7 @@ import lombok.Value;
 public class CampaignRequest {
   @NotNull String title;
 
-  @NonNull
-  Long userId;
+  @NonNull Long userId;
 
   @NotNull LocalDate startDate;
   @NotNull LocalDate endDate;
