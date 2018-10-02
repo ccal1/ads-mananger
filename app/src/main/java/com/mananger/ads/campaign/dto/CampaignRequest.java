@@ -10,7 +10,6 @@ import lombok.NonNull;
 @NoArgsConstructor(force = true)
 public class CampaignRequest {
 
-
   @NotNull String startDate;
   @NotNull String endDate;
 

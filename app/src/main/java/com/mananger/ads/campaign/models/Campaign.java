@@ -4,6 +4,7 @@ import com.mananger.ads.server.models.Ad;
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,11 +32,10 @@ public class Campaign {
   @Column(name = "visits_goal")
   Long visitsGoal;
 
-
   @Column(name = "user_email")
   String userId;
 
-  @OneToMany(mappedBy = "campaign")
+  @OneToMany(mappedBy = "campaign", cascade = CascadeType.ALL)
   Set<Place> places = new HashSet<>();
 
   @OneToMany(mappedBy = "campaign")
@@ -47,6 +47,5 @@ public class Campaign {
   @Column(name = "end_date")
   Date endDate;
 
-  @Column
-  Double cpv;
+  @Column Double cpv;
 }

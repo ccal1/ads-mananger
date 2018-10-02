@@ -8,7 +8,6 @@ import lombok.Value;
 public class PlaceDto {
   Long id;
 
-  Long campaignId;
   Double lat;
   Double lng;
 }

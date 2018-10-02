@@ -27,3 +27,6 @@ CREATE TABLE place (
 );
 
 INSERT INTO balance values ('divino', 100000000);
+INSERT INTO balance values ('inloco', 100000000);
+
+INSERT INTO balance values ('auth.com.inloco', 100000000);

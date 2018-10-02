@@ -11,8 +11,15 @@
 <p th:text="'visit goal: ' + ${campaign.visitsGoal}" />
 <p th:text="'start date: ' + ${campaign.startDate}" />
 <p th:text="'end date: ' + ${campaign.endDate}" />
-<h1>Form</h1>
-<form action="#" th:action="@{/campaign/${campaign.id}/addplace}" th:object="${place}" method="post">
+
+<h1>Places</h1>
+<tr th:each="place : ${campaign.places}">
+    <td th:text="${place.id}">1</td>
+    <td><a href="#" th:text="${place.lat}">Title ...</a></td>
+    <td th:text="${place.long}">Text ...</td>
+</tr>
+<h1>Add Place</h1>
+<form action="#" th:action="@{/campaign/addplace}" th:object="${place}" method="post">
   <p>Lat: <input type="text" th:field="*{lat}" /></p>
   <p>Long: <input type="text" th:field="*{lng}" /></p>
   <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
