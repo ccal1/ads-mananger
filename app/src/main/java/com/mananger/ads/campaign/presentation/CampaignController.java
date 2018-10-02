@@ -64,10 +64,7 @@ public class CampaignController {
   }
 
   private PlaceDto requestToDto(PlaceRequest request) {
-    return PlaceDto.builder()
-        .lng(request.getLng())
-        .lat(request.getLat())
-        .build();
+    return PlaceDto.builder().lng(request.getLng()).lat(request.getLat()).build();
   }
 
   private LocalDate stringToLocalDate(String date) {
