@@ -1,6 +1,6 @@
 package com.mananger.ads.campaign.service;
 
-import com.mananger.ads.campaign.dto.CampaignDto.CampaignRequest;
+import com.mananger.ads.campaign.dto.CampaignRequest;
 import com.mananger.ads.campaign.models.Campaign;
 import com.mananger.ads.campaign.repository.CampaignRepository;
 import com.mananger.ads.campaign.dto.CampaignDto;
