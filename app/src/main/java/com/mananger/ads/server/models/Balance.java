@@ -17,7 +17,8 @@ import lombok.experimental.FieldDefaults;
 public class Balance {
   @Id
   @Column(name = "user_email")
+  @EqualsAndHashCode.Include
   String id;
 
-  @Column Double ammount;
+  @Column Double amount;
 }

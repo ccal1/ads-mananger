@@ -22,6 +22,7 @@ import lombok.experimental.FieldDefaults;
 public class Ad {
 
   @Id
+  @EqualsAndHashCode.Include
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 

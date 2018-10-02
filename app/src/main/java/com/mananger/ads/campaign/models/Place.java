@@ -21,6 +21,7 @@ import lombok.experimental.FieldDefaults;
 public class Place {
 
   @Id
+  @EqualsAndHashCode.Include
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 

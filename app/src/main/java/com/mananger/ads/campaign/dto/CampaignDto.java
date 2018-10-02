@@ -12,12 +12,12 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @AllArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class CampaignDto {
 
   Long id;
 
-  String title;
+  Double cpv;
 
   Long visitsGoal;
 
@@ -26,4 +26,6 @@ public class CampaignDto {
   LocalDate startDate;
 
   LocalDate endDate;
+
+  String userId;
 }

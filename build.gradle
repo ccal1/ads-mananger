@@ -57,8 +57,12 @@ configure(subprojects.findAll { it.sourceSetTypes.contains("spring-boot-lib") })
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
         compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: springBootVersion
+<<<<<<< Updated upstream
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: springBootVersion
 
+=======
+        compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version:  '3.0.1.RELEASE'
+>>>>>>> Stashed changes
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: springBootVersion
     }
 }

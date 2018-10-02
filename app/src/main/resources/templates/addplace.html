@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Handling Form Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/campaign/{cp_id}/addplace}" th:object="${campaign}" method="post">
+  <p>StartDate: <input type="date" th:field="*{startDate}" /></p>
+  <p>EndDate: <input type="date" th:field="*{endDate}" /></p>
+  <p>VisitGoal: <input type="text" th:field="*{visitsGoal}" /></p>
+  <p>CPV: <input type="text" th:field="*{cpv}" /></p>
+  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

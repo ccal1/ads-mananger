@@ -24,13 +24,16 @@ import lombok.experimental.FieldDefaults;
 public class Campaign {
 
   @Id
+  @EqualsAndHashCode.Include
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 
   @Column(name = "visits_goal")
   Long visitsGoal;
 
-  @Column String userEmail;
+
+  @Column(name = "user_email")
+  String userId;
 
   @OneToMany(mappedBy = "campaign")
   Set<Place> places = new HashSet<>();
@@ -43,4 +46,7 @@ public class Campaign {
 
   @Column(name = "end_date")
   Date endDate;
+
+  @Column
+  Double cpv;
 }
